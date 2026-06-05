@@ -4,17 +4,27 @@ import 'package:flutter/material.dart';
 
 class TimerController extends ChangeNotifier {
   static const int initialTime = 8 * 60 * 60;
+  final List<String> timerNames = [
+  'Sleeping',
+  'Working',
+  'Entertaining',
+  ];
 
-  final List<int> remainingSeconds = List.filled(
-    3,
-    initialTime,
-  );
+  final List<int> targetSeconds = [
+  8 * 60 * 60,
+  8 * 60 * 60,
+  8 * 60 * 60,
+  ];
+
+  late final List<int> remainingSeconds;
 
   int activeTimer = 0;
 
   Timer? _ticker;
 
   TimerController() {
+    remainingSeconds = List.from(targetSeconds);
+
     startTicker();
   }
 

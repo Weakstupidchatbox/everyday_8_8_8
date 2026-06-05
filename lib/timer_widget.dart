@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 
 class TimerWidget extends StatelessWidget {
   final int index;
+  final String timerName;
   final String timeText;
+  final String targetText;
   final bool isActive;
   final VoidCallback onPressed;
 
   const TimerWidget({
     super.key,
     required this.index,
+    required this.timerName,
     required this.timeText,
+    required this.targetText,
     required this.isActive,
     required this.onPressed,
   });
@@ -27,18 +31,19 @@ class TimerWidget extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                'Timer ${index + 1}',
+                timerName,
                 style: const TextStyle(
-                  fontSize: 20,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
 
               const SizedBox(height: 12),
 
               Text(
-                timeText,
+                '$timeText / $targetText',
                 style: TextStyle(
-                  fontSize: 48,
+                  fontSize: 36,
                   fontWeight: FontWeight.bold,
                   color: isActive
                       ? Colors.green

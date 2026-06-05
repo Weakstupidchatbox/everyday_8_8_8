@@ -45,8 +45,14 @@ class _TimerPageState extends State<TimerPage> {
                   return TimerWidget(
                     index: index,
 
+                    timerName: controller.timerNames[index],
+
                     timeText: controller.formatTime(
                       controller.remainingSeconds[index],
+                    ),
+
+                    targetText: controller.formatTime(
+                      controller.targetSeconds[index],
                     ),
 
                     isActive:
